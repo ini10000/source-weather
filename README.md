@@ -32,14 +32,8 @@ Ensure you have the following installed on your machine:
 
 2. **Install dependencies:**
 
-   `npm install` or `yarn install`
+   `npm install`
 
-3. **Add your WeatherAPI key:**
+3. **Start the project:**
 
-   Replace [YOUR_WEATHERAPI_KEY] in App.js with your actual WeatherAPI key.
-
-   `const API_KEY = '[YOUR_WEATHERAPI_KEY]'; // Replace with your WeatherAPI key`
-
-4. **Start the project:**
-
-   `expo start`
+   `npx expo start`
