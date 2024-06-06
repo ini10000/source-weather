@@ -1,4 +1,4 @@
-# React Native Weather App
+# Source Weather App
 
 This is a simple weather application built with React Native and Expo. The app allows users to enter a city or zip code and fetch the current weather information for that location using the WeatherAPI service.
 
