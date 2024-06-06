@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, ActivityIndicator } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ActivityIndicator,
+  ImageBackground,
+} from "react-native";
 import axios from "axios";
 import WeatherInput from "../components/WeatherInput";
 import WeatherDisplay from "../components/WeatherDisplay";
@@ -29,16 +35,22 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <WeatherInput onSearch={handleSearch} />
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : error ? (
-        <Text style={styles.errorText}>{error}</Text>
-      ) : weatherData ? (
-        <WeatherDisplay weatherData={weatherData} />
-      ) : null}
-    </View>
+    <ImageBackground
+      source={require("../assets/images/background.jpg")}
+      style={styles.container}
+    >
+      <Text style={styles.header}>SOURCE WEATHER</Text>
+      <View style={styles.weatherContainer}>
+        <WeatherInput onSearch={handleSearch} />
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : error ? (
+          <Text style={styles.errorText}>{error}</Text>
+        ) : weatherData ? (
+          <WeatherDisplay weatherData={weatherData} />
+        ) : null}
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -49,9 +61,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#f0f0f0",
   },
+  weatherContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+  },
+  header: {
+    textAlign: "center",
+    marginBottom: 20,
+    fontWeight: "bold",
+    fontSize: 30,
+    color: "white",
+    marginTop: 40,
+  },
   errorText: {
     color: "red",
     textAlign: "center",
     marginTop: 20,
+    backgroundColor: "white",
+    padding: 5,
+    borderRadius: 5,
   },
 });
